@@ -1,0 +1,9 @@
+phidata
+langchain
+langchain-community
+groq
+openai
+langchain-groq
+langchain-openai
+python-dotenv 
+docker
