@@ -18,7 +18,7 @@ template = ChatPromptTemplate.from_messages([
     ("human", "{input}"),
 ])
 
-chain = LLMChain(llm=llm,prompt=template)
+chain = template | llm
 
 tools = [
     Tool(
@@ -38,7 +38,7 @@ tools = [
     ),
     Tool(
         name="LogsDockerContainer",
-        func=lambda x:docker_tools.logs_container(name=x),
+        func=lambda x:docker_tools.get_logs(name=x),
         description = "Use this tool to get the logs of the docker container. Input should be the name of the container."
     ),
 ]
